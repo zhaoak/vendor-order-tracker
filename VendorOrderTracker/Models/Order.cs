@@ -4,13 +4,14 @@ namespace VendorOrderTracker.Models;
 
 public class Order
 {
+  // most properties are public so they can be edited later if need be
   public string Title;
   public string Description;
   public string Item;
   public DateTime EntryDate { get; }
   public int quantity { get; set; }
-  private int priceDollars;
-  private int priceCents;
+  public int priceDollars;
+  public int priceCents;
   private bool _delivered = false;
 
   // =====================================
@@ -20,7 +21,7 @@ public class Order
     Title = orderTitle;
     Description = orderDescription;
     Item = orderItem;
-    EntryDate = TimeDate.Now();
+    EntryDate = DateTime.Now;
     quantity = orderQuantity;
     priceDollars = orderPriceDollars;
     priceCents = orderPriceCents;
@@ -31,7 +32,7 @@ public class Order
     return _delivered;
   }
 
-  public bool Delivered()
+  public void Delivered()
   {
     _delivered = true;
   }

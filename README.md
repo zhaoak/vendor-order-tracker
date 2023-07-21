@@ -20,7 +20,7 @@ goods, as well as their orders.
 
 - clone repository to location of your choice
 - ensure .NET 6 SDK is installed and correctly configured
-- navigate to `TamagotchiGame` directory
+- navigate to `VendorOrderTracker` directory
 - in your terminal, enter `dotnet run`
 - in your browser, open `http://localhost:5001`
 
@@ -28,12 +28,13 @@ goods, as well as their orders.
 
 - clone repository
 - ensure .NET 6 SDK is installed and configured
-- navigate to `TamagotchiGame.Tests` directory
+- navigate to `VendorOrderTracker.Tests` directory
 - in your terminal, enter `dotnet test`
 
 ## Known Bugs
 
-none...yet!
+- Refreshing vendor detail page after creating order resends POST request,
+  thus duplicating order
 
 ## License
 

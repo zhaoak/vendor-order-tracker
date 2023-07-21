@@ -26,7 +26,7 @@ public class VendorsController : Controller
   public ActionResult Create(string vendorName, string vendorDescription)
   {
     Vendor newVendor = new Vendor(vendorName, vendorDescription);
-    return RedirectToAction("Index");
+    return RedirectToAction("Index", "Home");
   }
 
   // detail page for individual vendors, lists vendor orders

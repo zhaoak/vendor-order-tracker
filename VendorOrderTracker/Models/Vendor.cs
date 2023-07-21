@@ -32,4 +32,9 @@ public class Vendor
   {
     return _instances;
   }
+  
+  public static Vendor Find(int id)
+  {
+    return _instances[id];
+  }
 }

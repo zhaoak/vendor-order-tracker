@@ -1,0 +1,33 @@
+@{
+Layout = "_Layout";
+}
+
+@using VendorOrderTracker.Models;
+
+<h4>Vendor Information</h4>
+<br>
+<h3>@Model.Name</h3>
+<p>@Model.Description</p>
+<hr>
+
+<a href="/vendors/@Model.Id/orders/new">Create New Order</a>
+<hr>
+
+<main class="vendor-order-list">
+  @if (Model.VendorOrders.Count == 0)
+  {
+    <p>No orders on file for @Model.Name</p>
+  }
+  else
+  {
+    @foreach (Order order in Model.VendorOrders)
+    {
+      <h5>@order.Title</h5>
+      <p>@order.Description</p>
+      <p>@order.Item (@order.quantity)</p>
+      <p>@order.PriceAsString()</p>
+      <br>
+    }
+  }
+
+</main>

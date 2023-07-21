@@ -1,0 +1,11 @@
+body {
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  background-color: black;
+  gap: 5px;
+}

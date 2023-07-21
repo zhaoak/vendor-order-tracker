@@ -1,0 +1,31 @@
+@{
+Layout = "_Layout";
+}
+
+@using VendorOrderTracker.Models;
+
+<h2>Add Order By @Model.Name</h2>
+
+<a href="/vendors/@Model.Id">Back to Vendor Page</a>
+
+<form action="/vendors/@Model.Id" method="post">
+  <label for="order-title">Title:</label>
+  <input id="order-title" name="orderTitle" type="text">
+  <br>
+  <label for="order-description">Description:</label>
+  <input id="order-description" name="orderDescription" type="text">
+  <br>
+  <label for="order-item">Item:</label>
+  <input id="order-item" name="orderItem" type="text">
+  <br>
+  <label for="order-quantity">Quantity:</label>
+  <input id="order-quantity" name="orderQuantity" type="number" min="1" value="1">
+  <br>
+  
+  <label for="order-price-dollars">Price (dollars):</label>
+  <input id="order-price-dollars" name="orderPriceDollars" type="number" min="0" value="0">
+
+  <label for="order-price-cents">Price (cents):</label>
+  <input id="order-price-cents" name="orderPriceCents" type="number" min="0" max="99" value="0">
+  <button type="submit">Add Order</button>
+</form>

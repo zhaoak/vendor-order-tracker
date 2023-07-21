@@ -1,0 +1,32 @@
+@{
+Layout = "_Layout";
+}
+
+@using VendorOrderTracker.Models;
+
+<h2>Vendor List</h2>
+
+<a href="/vendors/new">Add New Vendor</a>
+
+<main id="vendor-list">
+
+  @if (Model.Count == 0)
+  {
+    <p>No vendors yet.</p>
+  }
+  else
+  {
+    @foreach (Vendor vendor in Model)
+      {
+        <a href="/vendor/@vendor.Id">
+          <div class="vendor-tile">
+            <h4>@vendor.Name</h4>
+            <div class="vendor-orders">
+            </div>
+          </div>
+        </a>
+      }
+
+  }
+
+</main>

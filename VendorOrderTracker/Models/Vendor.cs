@@ -21,9 +21,15 @@ public class Vendor
     VendorOrders = new List<Order>{};
   }
 
-  public static void ClearAll() {
+  public static void ClearAll() 
+  {
     // there's a garbage collector, right?
     // this doesn't create a memory leak like in C++...right?
     _instances.Clear();
+  }
+
+  public static List<Vendor> GetAll()
+  {
+    return _instances;
   }
 }

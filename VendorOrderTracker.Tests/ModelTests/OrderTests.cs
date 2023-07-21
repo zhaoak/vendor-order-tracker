@@ -50,4 +50,20 @@ public class OrderTests
     //Assert
     Assert.AreEqual(true, testOrder.CheckIfDelivered());
   }
+
+  [TestMethod]
+  public void PriceAsString_ReturnsCorrect_String()
+  {
+    //Arrange
+    int testOrderQuantity = 5;
+    int testOrderDollarPrice = 10;
+    int testOrderCentPrice = 4;
+
+    //Act
+    Order testOrder = new Order("Test Order", "Test Description", "Test Item", testOrderQuantity, testOrderDollarPrice, testOrderCentPrice);
+    string correctPriceString = "$10.04";
+
+    //Assert
+    Assert.AreEqual(correctPriceString, testOrder.PriceAsString());
+  }
 }

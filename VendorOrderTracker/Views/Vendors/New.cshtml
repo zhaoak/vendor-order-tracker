@@ -1,0 +1,19 @@
+@{
+Layout = "_Layout";
+}
+
+@using VendorOrderTracker.Models;
+
+<h2>Add a Vendor</h2>
+
+<a href="/vendors">Back</a>
+
+<form action="/vendors" method="post">
+  <label for="vendor-name">Vendor Name:</label>
+  <input id="vendor-name" name="vendorName" type="text">
+  <br>
+  <label for="vendor-description">Vendor Description:</label>
+  <input id="vendor-description" name="vendorDescription" type="text">
+  <br>
+  <button type="submit">Add Vendor</button>
+</form>

@@ -6,27 +6,27 @@ Layout = "_Layout";
 
 <h4>Vendor Information</h4>
 <br>
-<h3>@Model.Name</h3>
-<p>@Model.Description</p>
+<h3>@Model["vendor"].Name</h3>
+<p>@Model["vendor"].Description</p>
 <hr>
 
-<a href="/vendors/@Model.Id/orders/new">Create New Order</a>
+<a href="/vendors/@Model["vendor"].Id/orders/new">Create New Order</a>
 <hr>
 
 <main class="vendor-order-list">
-  @if (Model.VendorOrders.Count == 0)
+  @if (Model["vendor"].VendorOrders.Count == 0)
   {
-    <p>No orders on file for @Model.Name</p>
+    <p>No orders on file for @Model["vendor"].Name</p>
   }
   else
   {
-    @foreach (Order order in Model.VendorOrders)
+    @foreach (Order order in Model["vendor"].VendorOrders)
     {
       <h5>@order.Title</h5>
       <p>@order.Description</p>
       <p>@order.Item (@order.quantity)</p>
       <p>@order.PriceAsString()</p>
-      <br>
+      <hr>
     }
   }
 

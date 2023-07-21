@@ -8,7 +8,7 @@ Layout = "_Layout";
 
 <a href="/vendors/@Model.Id">Back to Vendor Page</a>
 
-<form action="/vendors/@Model.Id" method="post">
+<form action="/vendors/@Model.Id/orders" method="post">
   <label for="order-title">Title:</label>
   <input id="order-title" name="orderTitle" type="text">
   <br>
@@ -27,5 +27,7 @@ Layout = "_Layout";
 
   <label for="order-price-cents">Price (cents):</label>
   <input id="order-price-cents" name="orderPriceCents" type="number" min="0" max="99" value="0">
+
+  <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
   <button type="submit">Add Order</button>
 </form>

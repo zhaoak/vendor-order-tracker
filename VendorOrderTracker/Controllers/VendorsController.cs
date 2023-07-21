@@ -33,7 +33,32 @@ public class VendorsController : Controller
   [HttpGet("/vendors/{id}")]
   public ActionResult Show(int id)
   {
+    Dictionary<string, object> model = new Dictionary<string, object>();
     Vendor foundVendor = Vendor.Find(id);
-    return View(foundVendor);
+    List<Order> foundVendorOrders = foundVendor.VendorOrders;
+    model.Add("vendor", foundVendor);
+    model.Add("orders", foundVendorOrders);
+    return View(model);
+  }
+
+  // order form submission route
+  [HttpPost("/vendors/{vendorId}/orders")]
+  public ActionResult Create(
+      int vendorId,
+      string orderTitle,
+      string orderDescription,
+      string orderItem,
+      int orderQuantity,
+      int orderPriceDollars,
+      int orderPriceCents)
+  {
+    Dictionary<string, object> model = new Dictionary<string, object>();
+    Vendor foundVendor = Vendor.Find(vendorId);
+    Order newOrder = new Order(orderTitle, orderDescription, orderItem, orderQuantity, orderPriceDollars, orderPriceCents);
+    foundVendor.VendorOrders.Add(newOrder);
+    List<Order> foundVendorOrders = foundVendor.VendorOrders;
+    model.Add("orders", foundVendorOrders);
+    model.Add("vendor", foundVendor);
+    return View("Show", model);
   }
 }
